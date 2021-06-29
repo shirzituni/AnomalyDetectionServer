@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/MainTrain.cpp.o -c /home/shirz/Project-3New/MainTrain.cpp",
+  "file": "/home/shirz/Project-3New/MainTrain.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/SimpleAnomalyDetector.cpp.o -c /home/shirz/Project-3New/SimpleAnomalyDetector.cpp",
+  "file": "/home/shirz/Project-3New/SimpleAnomalyDetector.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/timeseries.cpp.o -c /home/shirz/Project-3New/timeseries.cpp",
+  "file": "/home/shirz/Project-3New/timeseries.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/anomaly_detection_util.cpp.o -c /home/shirz/Project-3New/anomaly_detection_util.cpp",
+  "file": "/home/shirz/Project-3New/anomaly_detection_util.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/HybridAnomalyDetector.cpp.o -c /home/shirz/Project-3New/HybridAnomalyDetector.cpp",
+  "file": "/home/shirz/Project-3New/HybridAnomalyDetector.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/minCircle.cpp.o -c /home/shirz/Project-3New/minCircle.cpp",
+  "file": "/home/shirz/Project-3New/minCircle.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/CLI.cpp.o -c /home/shirz/Project-3New/CLI.cpp",
+  "file": "/home/shirz/Project-3New/CLI.cpp"
+},
+{
+  "directory": "/home/shirz/Project-3New/build",
+  "command": "/bin/c++     -pthread -std=c++11 -g   -o CMakeFiles/Project-3New.dir/Server.cpp.o -c /home/shirz/Project-3New/Server.cpp",
+  "file": "/home/shirz/Project-3New/Server.cpp"
+}
+]
