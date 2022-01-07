@@ -58,11 +58,11 @@ float dev(Point p,Point** points, int size){
 
 // returns the deviation between point p and the line
 float dev(Point p,Line l){
-	float x=p.y-l.f(p.x);
-	if(x<0)
+	float k=p.y-l.f(p.x);
+	if(k<0)
 		//Absolute value
-		x*=-1;
-	return x;
+		k*=-1;
+	return k;
 }
 
 
