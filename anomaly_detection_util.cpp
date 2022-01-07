@@ -50,7 +50,7 @@ Line linear_reg(Point** points, int size){
 	return Line(a,b);
 }
 
-// returns the deviation between point p and the line equation of the points
+// returns the deviation between point p and the line equation of the points, uses dev(Point,Line) func
 float dev(Point p,Point** points, int size){
 	Line l=linear_reg(points,size);
 	return dev(p,l);
@@ -60,6 +60,7 @@ float dev(Point p,Point** points, int size){
 float dev(Point p,Line l){
 	float x=p.y-l.f(p.x);
 	if(x<0)
+		//Absolute value
 		x*=-1;
 	return x;
 }
