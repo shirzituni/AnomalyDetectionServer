@@ -5,7 +5,7 @@
 Circle findMinCircle(Point** points,size_t size){
 	return findMinCircleHelper(points, {}, size);
 }
-
+// use of Welzl’s recursive algorithm
 Circle findMinCircleHelper(Point** copy, vector<Point> set, size_t size) {
 	if (size == 0) {
 		return default_min_circle(set);
