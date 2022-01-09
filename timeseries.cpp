@@ -21,15 +21,15 @@ TimeSeries::TimeSeries(const char* CSVfileName){
 	vector<float> temp;
 
 	//read from csv file
-    getline(file, line);
-    stringstream stream_names(line);
+    	getline(file, line);
+    	stringstream stream_names(line);
 	//The CSV file contains comma-separated values
 	while(stream_names.good()) {
 		getline(stream_names, colname, ',');
     	this->table.insert(pair<string,vector<float>> (colname, temp));
 		col_num++;
 		keys.push_back(colname);
-    }
+    	}
 
 	vector<vector<float>> values(col_num);
 
