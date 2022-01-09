@@ -28,6 +28,7 @@ public:
 
 };
 
+//command pattern
 class Command{
 	protected: DefaultIO* dio;
 	public: string description;
