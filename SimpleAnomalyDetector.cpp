@@ -50,6 +50,7 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries& ts)
 	//initialaize
 	string mem;
 	bool is_found = false;
+	//find pairs of features
 	for(int i = 0; i<size ; i++) {
 		for(int j = 0; j<size ; j++){
 			is_found = false;
@@ -65,7 +66,7 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries& ts)
 					break;
 				}
 			}
-			//if its a new match
+			//if its a new match find pearson
 			if(is_found == false){
 				//save the new pair
 				pairs.push_back(mem);
@@ -128,6 +129,10 @@ void SimpleAnomalyDetector::learnHelper(float maxResult, Point** ps, int num_of_
 	}		
 }	
 
+bool SimpleAnomalyDetector::isAnomalous(float x, float y,correlatedFeatures c){
+	return (abs(y - c.lin_reg.f(x)) > c.threshold * 1.1);
+}
+
 //gets TimeSeries ts and return report - vector of AnomalyReports
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries& ts){
 
@@ -146,7 +151,7 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries& ts){
 		i++;
 		//cout<< features_names[i] << endl;
 	}
-	// search deviations in the corr features
+	// search deviations in the correlated features
 	for (auto it=this->cf.begin(); it!=this->cf.end(); ++it){
 		for(int j = 0; j<num_of_rows; j++){
 			int f1 = stoi(it->feature1);
@@ -154,7 +159,7 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries& ts){
 			float* corr_fea1 = arrayofvectors[f1];
 			float* corr_fea2 = arrayofvectors[f2];
 			Point check(corr_fea1[j], corr_fea2[j]);
-			//deviation!!!
+			//***deviation****
 			if(isAnomalous(check.x, check.y, *it)){
 				AnomalyReport an(features_names[f1] + "-" + features_names[f2] , j+1);
 				report.push_back(an);
@@ -164,6 +169,4 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries& ts){
 	return report;
 }
 
-bool SimpleAnomalyDetector::isAnomalous(float x, float y,correlatedFeatures c){
-	return (abs(y - c.lin_reg.f(x)) > c.threshold * 1.1);
-}
+
