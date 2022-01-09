@@ -3,7 +3,12 @@
 #include "HybridAnomalyDetector.h"
 #include "minCircle.h"
 
+/*The anomaly detection algorithm is hybrid - a combination of the simple detector with the minimum radius algorithm that works like this:
+1. if you add a large correlation or equal to the set threshold (0.9) then the algorithm will run the simple detector(regression)
+2. If there is a feature whose maximum correlation with another feature is greater than 0.5 but smaller than the threshold then 
+for these two features the minimum threshold that encompasses the entire training point will determine. A point found outside the circle - deviation.*/
 
+//The hybrid detector inherit the simple detector.	
 HybridAnomalyDetector::HybridAnomalyDetector() {
 	// TODO Auto-generated constructor stub
 
@@ -54,7 +59,7 @@ bool HybridAnomalyDetector::isAnomalous(float x, float y,correlatedFeatures c) {
 		return SimpleAnomalyDetector::isAnomalous(x, y, c);
 	}
 	Point p(x,y);
-	//find if the point is outside the circle 
+	//find if the point is outside the circle - deviation
 	float dis = distance(c.circle.center, p); 
 	return(abs(dis) > c.threshold  * 1.1);
 }
