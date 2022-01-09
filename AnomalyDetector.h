@@ -15,6 +15,7 @@ public:
 	AnomalyReport(string description, long timeStep):description(description),timeStep(timeStep){}
 };
 
+//interface
 class TimeSeriesAnomalyDetector {
 public:
 	virtual void learnNormal(const TimeSeries& ts)=0;
