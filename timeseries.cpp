@@ -9,18 +9,21 @@
 #include <sstream> 
 using namespace std;
 
+//map<string, vector<float>> table - in timeseries.h
 TimeSeries::TimeSeries(const char* CSVfileName){
     
 	int col_num = 0;
 	//open the file
 	ifstream file(CSVfileName);
-    string colname, line;
+	string colname, line;
 	string curr_num;
 	vector<string> keys;
 	vector<float> temp;
 
+	//read from csv file
     getline(file, line);
     stringstream stream_names(line);
+	//The CSV file contains comma-separated values
 	while(stream_names.good()) {
 		getline(stream_names, colname, ',');
     	this->table.insert(pair<string,vector<float>> (colname, temp));
