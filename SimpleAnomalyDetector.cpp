@@ -13,7 +13,6 @@ SimpleAnomalyDetector::SimpleAnomalyDetector() {
 }
 
 SimpleAnomalyDetector::~SimpleAnomalyDetector() {
-	// TODO Auto-generated destructor stub
 }
 
 void SimpleAnomalyDetector::setThreshold(float threshold) {
@@ -28,6 +27,7 @@ void SimpleAnomalyDetector::buildPointsFromFeatures(float* corr_feature1, float*
 	}
 }
 
+//The learning phase
 void SimpleAnomalyDetector::learnNormal(const TimeSeries& ts)
 {
 	int size =  ts.getColSize();
@@ -93,7 +93,7 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries& ts)
 		
 		Line l = linear_reg(points, num_of_rows);
 		
-		//then it gets here, I have the max feature for i, and i'll check if i and that feature are corellative
+		//here it has the max feature for i, and it will check if i and that feature are corellative
 		learnHelper(maxResult, points ,num_of_rows, corr_feature1, corr_feature2, l);
 
 		maxResult = 0;
@@ -128,7 +128,7 @@ void SimpleAnomalyDetector::learnHelper(float maxResult, Point** ps, int num_of_
 	}		
 }	
 
-	
+//gets TimeSeries ts and return report - vector of AnomalyReports
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries& ts){
 
 	vector<AnomalyReport> report;
