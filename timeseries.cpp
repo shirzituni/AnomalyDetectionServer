@@ -20,7 +20,7 @@ TimeSeries::TimeSeries(const char* CSVfileName){
 	vector<string> keys;
 	vector<float> temp;
 
-	//read from csv file
+	//read from csv file, every line is a timestemp
     	getline(file, line);
     	stringstream stream_names(line);
 	//The CSV file contains comma-separated values
