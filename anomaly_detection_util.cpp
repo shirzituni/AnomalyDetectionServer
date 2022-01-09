@@ -33,6 +33,7 @@ float cov(float* x, float* y, int size){
 
 
 // returns the Pearson correlation coefficient of X and Y
+//Pearson - measure of linear correlation
 float pearson(float* x, float* y, int size){
 	return cov(x,y,size)/(sqrt(var(x,size))*sqrt(var(y,size)));
 }
@@ -56,13 +57,11 @@ float dev(Point p,Point** points, int size){
 	return dev(p,l);
 }
 
-// returns the deviation between point p and the line
+// returns the deviation between point p and the line, |p.y - l.y|
 float dev(Point p,Line l){
 	float k=p.y-l.f(p.x);
-	if(k<0)
-		//Absolute value
-		k*=-1;
-	return k;
+	//Absolute value
+	return abs(k);
 }
 
 
