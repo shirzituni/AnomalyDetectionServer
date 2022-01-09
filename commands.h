@@ -38,7 +38,7 @@ public:
 	virtual ~Command(){}
 };
 
-// implement here your command classes
+// implementation of command classes
 class Command1: public Command{
 public:
 	Command1(DefaultIO* dio):Command(dio){
